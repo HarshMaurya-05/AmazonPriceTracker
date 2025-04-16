@@ -29,7 +29,7 @@ SENDER_PASSWORD = "your_app_password"
 if not os.path.exists(DATA_FILE):
     with open(DATA_FILE, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(['URL', 'Product Name', 'Current Price', 'Target Price', 'Last Checked', 'Recipient Email'])
+        writer.writerow(['URL of Product', 'Product Name', 'Current Price', 'Target Price', 'Last Checked', 'Recipient Email'])
 
 def is_valid_email(email):
     """Validate an email address format"""
@@ -184,7 +184,7 @@ def check_prices():
     # Update the CSV file with new prices
     with open(DATA_FILE, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(['URL', 'Product Name', 'Current Price', 'Target Price', 'Last Checked', 'Recipient Email'])
+        writer.writerow(['URL Of Product', 'Product Name', 'Current Price', 'Target Price', 'Last Checked', 'Recipient Email'])
         writer.writerows(updated_rows)
     
     # Send notifications for products with price drops
