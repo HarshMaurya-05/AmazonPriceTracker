@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="fas fa-envelope me-2"></i>Configure Email Settings</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info" role="alert">
+                    <h5><i class="fas fa-info-circle me-2"></i>Important:</h5>
+                    <p>For Gmail, you'll need to use an <strong>App Password</strong> instead of your regular password.</p>
+                    <p>To create an App Password:</p>
+                    <ol>
+                        <li>Go to your Google Account</li>
+                        <li>Select Security</li>
+                        <li>Under "Signing in to Google," select App Passwords</li>
+                        <li>Follow the steps to generate the App Password</li>
+                    </ol>
+                    <a href="https://support.google.com/accounts/answer/185833" target="_blank" class="btn btn-sm btn-outline-info">
+                        <i class="fas fa-external-link-alt me-1"></i>Learn more about App Passwords
+                    </a>
+                </div>
+                
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Sender Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" required 
+                               placeholder="your-email@gmail.com">
+                        <div class="form-text">This email will be used to send price drop notifications</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">App Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <div class="form-text">Use an App Password, not your regular account password</div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i>Save Email Configuration
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-1"></i>Back to Products
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
